@@ -11,6 +11,7 @@ public class HashMain {
         }
         int frequency = hashMap.get("to");
         System.out.println("Frequency of given word is " + frequency);
+        System.out.println();
 
     }
 }
