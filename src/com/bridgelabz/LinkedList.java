@@ -8,12 +8,11 @@ public class LinkedList<K,V> {
         MyMapNode<K,V> newNode = new MyMapNode<K,V>(key,value);
         if(head == null) {
             head = newNode;
-            tail = newNode;
         }
         else{
             tail.next = newNode;
-            tail = newNode;
         }
+        tail = newNode;
     }
 
     public void replace(K key, V value) {

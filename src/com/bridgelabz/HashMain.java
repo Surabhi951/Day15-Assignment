@@ -4,8 +4,6 @@ public class HashMain {
 
     public static void main(String[] args) {
         String paragraph = "To be or not to be";
-
-
         String[] splitArray = paragraph.split(" ");
         MyHashTable<String,Integer> hashTable = new MyHashTable<>();
         for (String word:splitArray) {
