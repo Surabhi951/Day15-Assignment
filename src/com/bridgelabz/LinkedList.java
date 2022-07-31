@@ -1,60 +1,47 @@
 package com.bridgelabz;
 
 public class LinkedList<K,V> {
-    MyMapNode<K,V> head;
-    MyMapNode<K,V> tail;
 
-    public void add(K key,V value) {
-        MyMapNode<K,V> newNode = new MyMapNode<K,V>(key,value);
+    MyMapNode<K, V> head;
+    MyMapNode<K, V> tail;
+
+
+    public MyMapNode<K,V> search(K searchData) {
+        MyMapNode<K,V> temp = head;
+        while(temp != null){
+            if(temp.key.equals(searchData))
+                return temp;
+            temp = temp.next;
+        }
+        return null;
+    }
+
+
+    public void append(MyMapNode<K,V> node ) {
+
         if(head == null) {
-            head = newNode;
+            head = node;
+            tail = node;
         }
         else{
-            tail.next = newNode;
-        }
-        tail = newNode;
-    }
-
-    public void replace(K key, V value) {
-        MyMapNode<K, V> temp = head;
-        while (temp != null) {
-            if (temp.key.equals(key)) {
-                temp.value = value;
-            }
-            temp = temp.next;
+            tail.next = node;
+            tail = node;
         }
     }
 
-    public boolean containsKey(String key){
+    public void print(){
         MyMapNode<K,V> temp = head;
         while(temp != null){
-            if(temp.key.equals(key)){
-                return true;
-            }
-            temp = temp.next;
-        }
-        return false;
-
-    }
-
-    public int get(String word){
-        MyMapNode<K,V> temp = head;
-        int count = 0;
-        while(temp != null){
-            if(temp.key.equals(word)){
-                count++;
-            }
-            temp = temp.next;
-        }
-        return count;
-    }
-
-
-    public void print() {
-        MyMapNode<K,V> temp = head;
-        while(temp != null){
-            System.out.print("{ " + temp.key + "=" + temp.value + " }" + "\n");
+            System.out.println(temp);
             temp = temp.next;
         }
     }
+
+    @Override
+    public String toString() {
+        return "LinkedList{" +
+                "head=" + head +
+                ", tail=" + tail +
+                '}';
+     }
 }
